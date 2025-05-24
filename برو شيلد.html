@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Shield</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F8F8F8; /* لون خلفية فاتح وجميل */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #1E3A5F; /* أزرق داكن احترافي */
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* ظل أعمق وأكثر احترافية */
+        }
+
+        .logo {
+            font-size: 3.2em; /* حجم أكبر قليلاً للشعار */
+            font-weight: bold;
+            color: #ffffff;
+            font-family: 'Cairo', sans-serif;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            letter-spacing: 2px; /* تباعد بين الحروف */
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent); /* لمعان أكثر وضوحاً */
+            animation: shine 2.5s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -75%;
+            }
+            100% {
+                left: 125%;
+            }
+        }
+
+        .logo:hover {
+            transform: scale(1.1); /* تكبير أكثر عند التحليق */
+            transition: transform 0.3s ease;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: flex-start;
+        }
+        .main-content p {
+            font-size: 1.6em; /* حجم أكبر للنص */
+            color: #333333; /* لون نص أغمق وأكثر وضوحاً */
+            margin-bottom: 40px; /* تباعد أكبر */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .main-content p:hover {
+            color: #1E3A5F; /* لون أزرق داكن عند التحليق */
+            transform: scale(1.03); /* تكبير طفيف عند التحليق */
+        }
+        .social-icons {
+            margin-top: 35px;
+            display: flex;
+            gap: 30px; /* تباعد أكبر بين الأيقونات */
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 75px; /* حجم أكبر للأيقونات */
+            height: 75px; /* حجم أكبر للأيقونات */
+            border-radius: 50%;
+            font-size: 32px; /* حجم أيقونة أكبر */
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* إضافة ظل للتأثير */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل أوضح */
+        }
+        .social-icon img {
+            width: 45px; /* حجم أكبر لصور الأيقونات */
+            height: 45px; /* حجم أكبر لصور الأيقونات */
+            object-fit: contain;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.05); /* رفع وتكبير أكثر عند التحليق */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* ظل أعمق عند التحليق */
+        }
+
+        .whatsapp { background-color: #25D366; }
+        .whatsapp:hover { background-color: #128C7E; }
+        .instagram { background-color: #E4405F; }
+        .instagram:hover { background-color: #C82E4B; }
+
+        .website-button {
+            margin-top: 60px; /* تباعد أكبر */
+            margin-bottom: 50px; /* تباعد أكبر */
+        }
+        .website-button a {
+            background-color: #D4AF37; /* لون ذهبي جذاب */
+            color: #1E3A5F; /* نص أزرق داكن على الخلفية الذهبية */
+            padding: 20px 40px; /* تباعد أكبر للزر */
+            border-radius: 15px; /* حواف أكثر استدارة */
+            text-decoration: none;
+            font-size: 22px; /* حجم خط أكبر للزر */
+            font-weight: bold; /* خط سميك */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+        }
+        .website-button a:hover {
+            background-color: #FFD700; /* ذهبي أفتح عند التحليق */
+            transform: translateY(-5px) scale(1.07); /* رفع وتكبير أكثر عند التحليق */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .website-button a img {
+            margin-left: 12px; /* تباعد أكبر بين الأيقونة والنص */
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #1E3A5F; /* أزرق داكن احترافي */
+            color: #ffffff;
+            text-align: center;
+            padding: 25px 0; /* تباعد أكبر للتذييل */
+            margin-top: auto;
+            box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.25); /* ظل أعمق */
+            font-size: 1em; /* حجم خط أكبر قليلاً */
+        }
+
+        /* Services Section Styles */
+        .services-section {
+            background-color: #ffffff; /* خلفية بيضاء نظيفة */
+            padding: 50px 30px; /* تباعد أكبر للقسم */
+            border-radius: 20px; /* حواف أكثر استدارة */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* ظل أعمق وأكثر نعومة */
+            margin-top: 50px;
+            width: 90%;
+            max-width: 1000px; /* عرض أقصى أكبر قليلاً */
+            text-align: center;
+        }
+
+        .services-section h2 {
+            font-size: 3em; /* حجم أكبر للعنوان الرئيسي للخدمات */
+            color: #1E3A5F; /* أزرق داكن */
+            margin-bottom: 50px; /* تباعد أكبر */
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .services-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px; /* خط أطول تحت العنوان */
+            height: 5px; /* خط أسمك */
+            background-color: #D4AF37; /* لون ذهبي جذاب */
+            border-radius: 3px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* أعمدة أكبر قليلاً */
+            gap: 40px; /* تباعد أكبر بين العناصر */
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .service-item {
+            background-color: #FDFDFD; /* خلفية بيضاء ناصعة لعناصر الخدمة */
+            padding: 30px; /* تباعد داخلي أكبر */
+            border-radius: 15px; /* حواف أكثر استدارة */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* ظل أنعم */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: right;
+            border: 1px solid #eee; /* حدود خفيفة */
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px); /* رفع أكثر عند التحليق */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18); /* ظل أعمق وأكثر وضوحاً عند التحليق */
+        }
+
+        .service-item .icon {
+            width: 70px; /* حجم أيقونة أكبر */
+            height: 70px; /* حجم أيقونة أكبر */
+            margin-bottom: 20px; /* تباعد أكبر */
+            background-color: #1E3A5F; /* أزرق داكن */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #D4AF37; /* لون ذهبي للأيقونات */
+            font-size: 38px; /* حجم خط الأيقونة أكبر */
+            float: right;
+            margin-left: 20px; /* تباعد أكبر بين الأيقونة والنص */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item h3 {
+            font-size: 2em; /* حجم أكبر للعنوان الفرعي */
+            color: #1E3A5F; /* أزرق داكن */
+            margin-bottom: 12px;
+            text-align: right;
+        }
+
+        .service-item p {
+            font-size: 1.2em; /* حجم خط أكبر للوصف */
+            color: #555555; /* لون نص أغمق */
+            line-height: 1.7; /* تباعد أسطر أفضل */
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.8em;
+            }
+            .main-content p {
+                font-size: 1.4em;
+            }
+            .social-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 28px;
+            }
+            .social-icon img {
+                width: 35px;
+                height: 35px;
+            }
+            .website-button a {
+                font-size: 20px;
+                padding: 18px 35px;
+            }
+            .services-section {
+                padding: 40px 20px;
+                width: 95%;
+            }
+            .services-section h2 {
+                font-size: 2.5em;
+                margin-bottom: 35px;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .service-item .icon {
+                float: none;
+                margin: 0 auto 15px auto;
+            }
+            .service-item {
+                text-align: center;
+            }
+            .service-item h3, .service-item p {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2.2em;
+            }
+            .main-content {
+                padding: 15px;
+            }
+            .main-content p {
+                font-size: 1.3em;
+            }
+            .social-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+            }
+            .social-icon img {
+                width: 30px;
+                height: 30px;
+            }
+            .website-button a {
+                font-size: 18px;
+                padding: 15px 30px;
+            }
+            .services-section h2 {
+                font-size: 2em;
+            }
+            .service-item h3 {
+                font-size: 1.6em;
+            }
+            .service-item p {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Pro Shield</title>
+    <style>
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo {
+            width: 40vw; /* 40% من عرض الشاشة */
+            max-width: 200px; /* أقصى حجم 200px */
+            height: auto;
+            border-radius: 50%;
+            object-fit: contain;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <img src="logo pro.jpg" alt="Pro Shield Logo" class="logo">
+    </header>
+
+</body>
+</html>
+
+
+    <main class="main-content">
+        <p>: تواصل معنا و شاركنا تقييمك </p>
+        <div class="social-icons">
+            <a href="https://wa.me/966509998373" target="_blank" class="social-icon whatsapp" title="تواصل عبر واتساب">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2048px-WhatsApp.svg.png" alt="WhatsApp" onerror="this.onerror=null;this.src='https://placehold.co/40x40/25D366/ffffff?text=WA';" >
+            </a>
+            <a href="https://www.instagram.com/qaheralshra?igsh=MWJ1NmdxZ2drZXJhMw==" target="_blank" class="social-icon instagram" title="تواصل عبر انستغرام">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram" onerror="this.onerror=null;this.src='https://placehold.co/40x40/E4405F/ffffff?text=IG';" >
+            </a>
+        </div>
+
+        <div class="website-button">
+            <a href="https://maps.app.goo.gl/2otzKkR64HQEUANr8" target="_blank">
+                <img src="https://cdn1.iconfinder.com/data/icons/google-new-logos-1/32/google_maps_new_logo-512.png"
+                     alt="Location"
+                     onerror="this.onerror=null;this.src='https://placehold.co/30x30/D4AF37/1E3A5F?text=Map';"
+                     style="width:30px; height:30px; vertical-align:middle; margin-left:10px;">
+                شاركنا تقييمك
+            </a>
+        </div>
+
+        <section class="services-section">
+            <h2>خدماتنا</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <div class="icon">✨</div> <h3>تلميع خارجي (SONAX)</h3>
+                    <p>تلميع خارجي احترافي باستخدام مواد عالية الجودة من شركة سونكس لبريق يدوم </p>
+                </div>
+                <div class="service-item">
+                    <div class="icon">🛋️</div> <h3>تلميع داخلي</h3>
+                    <p>تنظيف وتلميع شامل للداخلية، لإعادة رونق مقصورة سيارتك </p>
+                </div>
+                <div class="service-item">
+                    <div class="icon">🕶️</div> <h3>تظليل</h3>
+                    <p>تركيب أفلام تظليل عالية الجودة لحماية من الشمس وخصوصية تامة </p>
+                </div>
+                <div class="service-item">
+                    <div class="icon">🛡️</div> <h3>حماية PPF</h3>
+                    <p>طبقة حماية شفافة (PPF) لطلاء السيارة ضد الخدوش والحصى </p>
+                </div>
+                <div class="service-item">
+                    <div class="icon">🔩</div> <h3>رش مانع الصدأ</h3>
+                    <p>حماية أسفل السيارة من الصدأ والتآكل لزيادة عمر المركبة </p>
+                </div>
+                <div class="service-item">
+                    <div class="icon">💎</div> <h3>نانو سيراميك</h3>
+                    <p>طبقة نانو سيراميك لحماية فائقة ولمعان يدوم طويلاً لطلاء سيارتك </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Pro Shield. جميع الحقوق محفوظة</p>
+    </footer>
+</body>
+</html>
